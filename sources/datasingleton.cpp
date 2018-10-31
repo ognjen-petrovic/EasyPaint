@@ -65,7 +65,7 @@ void DataSingleton::readSetting()
     mFileShortcuts.insert("New", settings.value("/Shortcuts/File/New", QKeySequence(QKeySequence::New)).value<QKeySequence>());
     mFileShortcuts.insert("Open", settings.value("/Shortcuts/File/Open", QKeySequence(QKeySequence::Open)).value<QKeySequence>());
     mFileShortcuts.insert("Save", settings.value("/Shortcuts/File/Save", QKeySequence(QKeySequence::Save)).value<QKeySequence>());
-    mFileShortcuts.insert("SaveAs", settings.value("/Shortcuts/File/SaveAs", QKeySequence(QKeySequence::SaveAs)).value<QKeySequence>());
+    mFileShortcuts.insert("SaveAs", settings.value("/Shortcuts/File/SaveAs", QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S)).value<QKeySequence>());
     mFileShortcuts.insert("Close", settings.value("/Shortcuts/File/Close", QKeySequence(QKeySequence::Close)).value<QKeySequence>());
     mFileShortcuts.insert("Print", settings.value("/Shortcuts/File/Print", QKeySequence(QKeySequence::Print)).value<QKeySequence>());
     mFileShortcuts.insert("Exit", settings.value("/Shortcuts/File/Exit", QKeySequence(QKeySequence::Quit)).value<QKeySequence>());
