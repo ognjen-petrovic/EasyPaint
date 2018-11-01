@@ -228,6 +228,13 @@ void MainWindow::initializeMainMenu()
     connect(mCutAction, SIGNAL(triggered()), this, SLOT(cutAct()));
     editMenu->addAction(mCutAction);
 
+    mCropAction = new QAction(tr("Crop"));
+    mCropAction->setIcon(QIcon(":/media/actions-icons/actions-transform-crop-and-resize-icon.png"));
+    mCropAction->setIconVisibleInMenu(true);
+    mCropAction->setEnabled(false);
+    connect(mCropAction, SIGNAL(triggered()), this, SLOT(cropAct()));
+    editMenu->addAction(mCropAction);
+
     editMenu->addSeparator();
 
     QAction *settingsAction = new QAction(tr("&Settings"), this);
@@ -582,6 +589,13 @@ void MainWindow::cutAct()
         imageArea->cutImage();
 }
 
+void MainWindow::cropAct()
+{
+    if (ImageArea *imageArea = getCurrentImageArea())
+        imageArea->cropImage();
+}
+
+
 void MainWindow::updateShortcuts()
 {
     mNewAction->setShortcut(DataSingleton::Instance()->getFileShortcutByKey("New"));
@@ -597,6 +611,7 @@ void MainWindow::updateShortcuts()
     mCopyAction->setShortcut(DataSingleton::Instance()->getEditShortcutByKey("Copy"));
     mPasteAction->setShortcut(DataSingleton::Instance()->getEditShortcutByKey("Paste"));
     mCutAction->setShortcut(DataSingleton::Instance()->getEditShortcutByKey("Cut"));
+    mCropAction->setShortcut(DataSingleton::Instance()->getEditShortcutByKey("Crop"));
 
     mInstrumentsActMap[CURSOR]->setShortcut(DataSingleton::Instance()->getInstrumentShortcutByKey("Cursor"));
     mInstrumentsActMap[ERASER]->setShortcut(DataSingleton::Instance()->getInstrumentShortcutByKey("Lastic"));
@@ -821,6 +836,7 @@ void MainWindow::enableCopyCutActions(bool enable)
 {
     mCopyAction->setEnabled(enable);
     mCutAction->setEnabled(enable);
+    mCropAction->setEnabled(enable);
 }
 
 void MainWindow::clearImageSelection()

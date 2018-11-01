@@ -137,6 +137,10 @@ isEmpty(TS_DIR) {
 ;PRE_TARGETDEPS += compiler_TSQM_make_all
 INSTALLS += target translations desktop icon
 
+DISTFILES += \
+    media/actions-icons/actions-transform-crop-and-resize-icon.png \
+    media/actions-icons/actions-transform-crop-and-resize-icon.png
+
 
 
 

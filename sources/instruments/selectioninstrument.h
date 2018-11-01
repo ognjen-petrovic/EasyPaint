@@ -63,6 +63,7 @@ public:
      * @param imageArea ImageArea for applying changes.
      */
     void cutImage(ImageArea &imageArea);
+    void cropImage(ImageArea &imageArea);
 
 private:
     void startAdjusting(ImageArea &imageArea);
