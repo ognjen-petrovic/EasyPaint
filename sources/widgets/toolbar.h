@@ -63,7 +63,7 @@ private:
 
     QToolButton *mCursorButton, *mEraserButton, *mPenButton, *mLineButton,
                 *mColorPickerButton, *mMagnifierButton, *mSprayButton, *mFillButton,
-                *mRectangleButton, *mEllipseButton, *mCurveButton, *mTextButton;
+                *mRectangleButton, *mEllipseButton, *mCurveButton, *mTextButton, *mArrowButton;
     ColorChooser *mPColorChooser, *mSColorChooser;
     bool mPrevInstrumentSetted;
     const QMap<InstrumentsEnum, QAction*> &mActMap;
