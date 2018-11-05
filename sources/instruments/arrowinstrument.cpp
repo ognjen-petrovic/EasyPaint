@@ -26,10 +26,10 @@
 #include "arrowinstrument.h"
 #include "../imagearea.h"
 #include "../datasingleton.h"
+#include "math.h"
 
 #include <QPen>
 #include <QPainter>
-#include <QDebug>
 
 ArrowInstrument::ArrowInstrument(QObject *parent) :
     AbstractInstrument(parent)
@@ -95,14 +95,27 @@ void ArrowInstrument::paint(ImageArea &imageArea, bool isSecondaryColor, bool)
 
     if(mStartPoint != mEndPoint)
     {
+        QPoint p1,p2,p3,p4,p5,p6;
         int dx = (mEndPoint.x() - mStartPoint.x())/2;
         int dy = (mEndPoint.y() - mStartPoint.y())/2;
-        QPoint p1(mStartPoint.x() + dx, mEndPoint.y());
-        QPoint p2(p1.x(), mStartPoint.y() + dy);
-        QPoint p3(mEndPoint.x(), p2.y());
-        QPoint p4(mEndPoint.x(), p3.y() - 2 * dy);
-        QPoint p5(p2.x(), p4.y());
-        QPoint p6(p1.x(), p5.y() - dy);
+        if (abs(dx) > abs(dy))
+        {
+            p1 = QPoint(mStartPoint.x() + dx, mEndPoint.y());
+            p2 = QPoint(p1.x(), mStartPoint.y() + dy);
+            p3 = QPoint(mEndPoint.x(), p2.y());
+            p4 = QPoint(mEndPoint.x(), p3.y() - 2 * dy);
+            p5 = QPoint(p2.x(), p4.y());
+            p6 = QPoint(p1.x(), p5.y() - dy);
+        }
+        else
+        {
+            p1 = QPoint(mEndPoint.x(), mStartPoint.y() + dy);
+            p2 = QPoint(p1.x() - dx, mStartPoint.y() + dy);
+            p3 = QPoint(p2.x(), mEndPoint.y());
+            p4 = QPoint(p3.x() - 2 * dx , mEndPoint.y());
+            p5 = QPoint(p4.x(), p2.y());
+            p6 = QPoint(p5.x() - dx, p1.y());
+        }
 
         const std::array<const QPoint, 7> points = {
             mStartPoint,p1,p2,p3,p4,p5,p6
