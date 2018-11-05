@@ -329,6 +329,14 @@ void MainWindow::initializeMainMenu()
     connect(mTextAction, SIGNAL(triggered(bool)), this, SLOT(instumentsAct(bool)));
     mInstrumentsMenu->addAction(mTextAction);
     mInstrumentsActMap.insert(TEXT, mTextAction);
+
+    QAction *mArrowAction = new QAction(tr("Arrow"), this);
+    mArrowAction->setCheckable(true);
+    mArrowAction->setIcon(QIcon(":/media/instruments-icons/arrow.png"));
+    connect(mArrowAction, SIGNAL(triggered(bool)), this, SLOT(instumentsAct(bool)));
+    mInstrumentsMenu->addAction(mArrowAction);
+    mInstrumentsActMap.insert(ARROW, mArrowAction);
+
     // TODO: Add new instrument action here
 
     mEffectsMenu = menuBar()->addMenu(tr("E&ffects"));
@@ -625,6 +633,7 @@ void MainWindow::updateShortcuts()
     mInstrumentsActMap[ELLIPSE]->setShortcut(DataSingleton::Instance()->getInstrumentShortcutByKey("Ellipse"));
     mInstrumentsActMap[CURVELINE]->setShortcut(DataSingleton::Instance()->getInstrumentShortcutByKey("Curve"));
     mInstrumentsActMap[TEXT]->setShortcut(DataSingleton::Instance()->getInstrumentShortcutByKey("Text"));
+    mInstrumentsActMap[ARROW]->setShortcut(DataSingleton::Instance()->getInstrumentShortcutByKey("Arrow"));
     // TODO: Add new instruments' shorcuts here
 
     mZoomInAction->setShortcut(DataSingleton::Instance()->getToolShortcutByKey("ZoomIn"));

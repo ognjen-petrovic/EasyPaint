@@ -38,5 +38,6 @@
         <file>media/instruments-icons/curve.png</file>
         <file>media/actions-icons/clear-gray.png</file>
         <file>media/actions-icons/actions-transform-crop-and-resize-icon.png</file>
+        <file>media/instruments-icons/arrow.png</file>
     </qresource>
 </RCC>

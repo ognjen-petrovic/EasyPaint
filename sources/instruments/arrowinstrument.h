@@ -23,51 +23,30 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef EASYPAINTENUMS_H
-#define EASYPAINTENUMS_H
+#ifndef ARROWINSTRUMENT_H
+#define ARROWINSTRUMENT_H
+
+#include "abstractinstrument.h"
+
+#include <QtCore/QObject>
 
 /**
- * @brief Enum with instruments names
+ * @brief Arrow instrument class.
  *
  */
-typedef enum
+class ArrowInstrument : public AbstractInstrument
 {
-    NONE_INSTRUMENT = 0,
-    CURSOR,
-    ERASER,
-    PEN,
-    LINE,
-    COLORPICKER,
-    MAGNIFIER,
-    SPRAY,
-    FILL,
-    RECTANGLE,
-    ELLIPSE,
-    CURVELINE,
-    TEXT,
-    ARROW,
+    Q_OBJECT
+public:
+    explicit ArrowInstrument(QObject *parent = 0);
+    
+    void mousePressEvent(QMouseEvent *event, ImageArea &imageArea);
+    void mouseMoveEvent(QMouseEvent *event, ImageArea &imageArea);
+    void mouseReleaseEvent(QMouseEvent *event, ImageArea &imageArea);
 
-    // Don't use it. (Used to know count of current instrument)
-    INSTRUMENTS_COUNT
-} InstrumentsEnum;
+protected:
+    void paint(ImageArea &imageArea, bool isSecondaryColor = false, bool additionalFlag = false);
+    
+};
 
-/**
- * @brief Enum with effects names
- *
- */
-typedef enum
-{
-    NONE_EFFECT = 0,
-    NEGATIVE,
-    GRAY,
-    BINARIZATION,
-    GAUSSIANBLUR,
-    GAMMA,
-    SHARPEN,
-    CUSTOM,
-
-    // Don't use it. (Used to know count of current instrument)
-    EFFECTS_COUNT
-} EffectsEnum;
-
-#endif // EASYPAINTENUMS_H
+#endif // ARROWINSTRUMENT_H

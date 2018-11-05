@@ -40,6 +40,7 @@
 #include "instruments/selectioninstrument.h"
 #include "instruments/curvelineinstrument.h"
 #include "instruments/textinstrument.h"
+#include "instruments/arrowinstrument.h"
 #include "dialogs/resizedialog.h"
 
 #include "effects/abstracteffect.h"
@@ -151,6 +152,7 @@ ImageArea::ImageArea(const bool &isOpen, const QString &filePath, QWidget *paren
     mInstrumentsHandlers[COLORPICKER] = new ColorpickerInstrument(this);
     mInstrumentsHandlers[CURVELINE] = new CurveLineInstrument(this);
     mInstrumentsHandlers[TEXT] = new TextInstrument(this);
+    mInstrumentsHandlers[ARROW] = new ArrowInstrument(this);
 
     // Effects handlers
     mEffectsHandlers.fill(0, (int)EFFECTS_COUNT);
@@ -479,7 +481,7 @@ void ImageArea::restoreCursor()
         mCurrentCursor = new QCursor(*mPixmap);
         setCursor(*mCurrentCursor);
         break;
-    case RECTANGLE: case ELLIPSE: case LINE: case CURVELINE: case TEXT:
+    case RECTANGLE: case ELLIPSE: case LINE: case CURVELINE: case TEXT: case ARROW:
         mCurrentCursor = new QCursor(Qt::CrossCursor);
         setCursor(*mCurrentCursor);
         break;
@@ -505,7 +507,7 @@ void ImageArea::drawCursor()
     {
     case NONE_INSTRUMENT: case LINE: case COLORPICKER: case MAGNIFIER: case  SPRAY:
     case FILL: case RECTANGLE: case ELLIPSE: case CURSOR: case INSTRUMENTS_COUNT:
-    case CURVELINE: case TEXT:
+    case CURVELINE: case TEXT: case ARROW:
         break;
     case PEN: case ERASER:
         mPixmap->fill(QColor(0, 0, 0, 0));
@@ -516,7 +518,7 @@ void ImageArea::drawCursor()
     {
     case NONE_INSTRUMENT: case LINE: case COLORPICKER: case MAGNIFIER: case  SPRAY:
     case FILL: case RECTANGLE: case ELLIPSE: case CURSOR: case INSTRUMENTS_COUNT:
-    case CURVELINE: case TEXT:
+    case CURVELINE: case TEXT: case ARROW:
         break;
     case PEN:
         if(mRightButtonPressed)
