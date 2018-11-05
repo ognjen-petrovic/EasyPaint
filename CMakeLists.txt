@@ -53,7 +53,8 @@ set (HEADERS
     sources/instruments/magnifierinstrument.h
     sources/instruments/colorpickerinstrument.h
     sources/instruments/curvelineinstrument.h
-    sources/instruments/textinstrument.h)
+    sources/instruments/textinstrument.h
+    sources/instruments/arrowinstrument.h)
 
 #------- sources --------
 set (SOURCES
@@ -95,7 +96,8 @@ set (SOURCES
     sources/instruments/magnifierinstrument.cpp
     sources/instruments/colorpickerinstrument.cpp
     sources/instruments/curvelineinstrument.cpp
-    sources/instruments/textinstrument.cpp)
+    sources/instruments/textinstrument.cpp
+    sources/instruments/arrowinstrument.cpp)
 
 #------- resources -------
 set (RESOURCE_PATH
