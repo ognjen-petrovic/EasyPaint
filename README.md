@@ -2,7 +2,7 @@ EasyPaint
 =========
 
 I needed simple program that can take a screenshot and do simple edits.
-Original project is [here] (https://github.com/Gr1N/EasyPaint)
+Original project is [here](https://github.com/Gr1N/EasyPaint).
 
 My additions to original:
 
@@ -10,7 +10,7 @@ My additions to original:
 * Crop
 * Arrow instrument
 
-Windows program download: [easypaint_Qt_5_9_1_MinGW_32bit.zip] (https://bintray.com/ognjen-petrovic/EasyPaint/download_file?file_path=easypaint_Qt_5_9_1_MinGW_32bit.zip)
+Windows program download: [easypaint_Qt_5_9_1_MinGW_32bit.zip](https://bintray.com/ognjen-petrovic/EasyPaint/download_file?file_path=easypaint_Qt_5_9_1_MinGW_32bit.zip).
 
 
 Installing
