@@ -1,13 +1,17 @@
 EasyPaint
 =========
 
-EasyPaint is a simple graphics painting program
+I needed simple program that can take a screenshot and do simple edits.
+Original project is [here] (https://github.com/Gr1N/EasyPaint)
 
-You may watch screenshots [here](http://qt-apps.org/content/show.php?content=140877).
+My additions to original:
 
-EasyPaint is a part of QtDesktop project.
+* Screnshot
+* Crop
+* Arrow instrument
 
-EasyPaint is a part of [Razor-qt's](https://github.com/Razor-qt) [3rd party applications](https://github.com/Razor-qt/razor-qt/wiki/3rd-party-applications).
+Windows program download: [easypaint_Qt_5_9_1_MinGW_32bit.zip] (https://bintray.com/ognjen-petrovic/EasyPaint/download_file?file_path=easypaint_Qt_5_9_1_MinGW_32bit.zip)
+
 
 Installing
 ----------
@@ -26,8 +30,6 @@ Install EasyPaint using the commands, if you use qmake:
     qmake
     make
     make install
-
-Also you could find packages for linux distributions [here](http://qt-apps.org/content/show.php?content=140877).
 
 License
 -------
