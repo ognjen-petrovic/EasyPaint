@@ -9,8 +9,9 @@ My additions to original:
 * Screnshot
 * Crop
 * Arrow instrument
+* Copy whole image to clipboard when there is no selection
 
-Windows program download: [easypaint_Qt_5_9_1_MinGW_32bit.zip](https://bintray.com/ognjen-petrovic/EasyPaint/download_file?file_path=easypaint_Qt_5_9_1_MinGW_32bit.zip).
+Windows program download: [easypaint_Qt_5_9_1_MinGW_32bit_v2.zip](https://bintray.com/ognjen-petrovic/EasyPaint/download_file?file_path=easypaint_Qt_5_9_1_MinGW_32bit_v2.zip).
 
 
 Installing
