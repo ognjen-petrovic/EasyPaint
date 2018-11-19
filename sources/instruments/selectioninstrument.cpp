@@ -39,11 +39,12 @@ SelectionInstrument::SelectionInstrument(QObject *parent) :
 
 void SelectionInstrument::copyImage(ImageArea &imageArea)
 {
+    QClipboard *globalClipboard = QApplication::clipboard();
+    QImage copyImage;
+
     if (mIsSelectionExists)
     {
         imageArea.setImage(mImageCopy);
-        QClipboard *globalClipboard = QApplication::clipboard();
-        QImage copyImage;
         if(mIsImageSelected)
         {
             copyImage = mSelectedImage;
@@ -52,8 +53,14 @@ void SelectionInstrument::copyImage(ImageArea &imageArea)
         {
             copyImage = imageArea.getImage()->copy(mTopLeftPoint.x(), mTopLeftPoint.y(), mWidth, mHeight);
         }
-        globalClipboard->setImage(copyImage, QClipboard::Clipboard);
+
     }
+    else
+    {
+        copyImage = *imageArea.getImage();
+    }
+
+    globalClipboard->setImage(copyImage, QClipboard::Clipboard);
 }
 
 void SelectionInstrument::cutImage(ImageArea &imageArea)

@@ -211,7 +211,7 @@ void MainWindow::initializeMainMenu()
     mCopyAction = new QAction(tr("&Copy"), this);
     mCopyAction->setIcon(QIcon::fromTheme("edit-copy", QIcon(":/media/actions-icons/edit-copy.png")));
     mCopyAction->setIconVisibleInMenu(true);
-    mCopyAction->setEnabled(false);
+    //mCopyAction->setEnabled(false);
     connect(mCopyAction, SIGNAL(triggered()), this, SLOT(copyAct()));
     editMenu->addAction(mCopyAction);
 
@@ -843,7 +843,7 @@ void MainWindow::enableActions(int index)
 
 void MainWindow::enableCopyCutActions(bool enable)
 {
-    mCopyAction->setEnabled(enable);
+    //mCopyAction->setEnabled(enable);
     mCutAction->setEnabled(enable);
     mCropAction->setEnabled(enable);
 }
